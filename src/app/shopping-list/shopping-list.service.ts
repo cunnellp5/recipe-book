@@ -1,5 +1,5 @@
 import { IIngredient } from '../shared/ingredient.model';
-import { EventEmitter } from 'events';
+import { EventEmitter } from '@angular/core';
 
 export class ShoppingListService {
   ingredientsChanged = new EventEmitter<IIngredient[]>();

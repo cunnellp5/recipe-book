@@ -7,7 +7,7 @@
         class="list-group-item" 
         style="cursor: pointer"
         *ngFor="let ingredient of ingredients">
-        {{ ingredient.name }} ({{ ingredient.amount }})
+        {{ ingredient.name }} ({{ ingredient.amount ? ingredient.amount : 0 }})
       </a>
     </ul>
   </div>
