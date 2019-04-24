@@ -28,4 +28,9 @@ export class ShoppingListService {
     this.ingredientsChanged.next([...this.ingredients]);
   }
 
+  updateIngredient(index: number, newIngredient: IIngredient) {
+    this.ingredients[index] = newIngredient;
+    this.ingredientsChanged.next(this.ingredients.slice());
+  }
+
 }
