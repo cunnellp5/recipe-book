@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-xs-12">
     <form
-      (ngSubmit)="onAddItem(f)"
-      #f="ngForm"
+      (ngSubmit)="onAddItem(form)"
+      #form="ngForm"
     >
       <div class="row">
         <div class="col-sm-5 form-group">
@@ -13,6 +13,7 @@
             class="form-control"
             name="name"
             ngModel
+            required
           >
         </div>
         <div class="col-sm-2 form-group">
@@ -23,6 +24,8 @@
             class="form-control"
             name="amount"
             ngModel
+            required
+            pattern="^[1-9]+[0-9]*$"
           >
         </div>
       </div>
@@ -31,6 +34,7 @@
           <button
             class="btn btn-success"
             type="submit"
+            [disabled]="!form.valid"
           >Add</button>
           <button
             class="btn btn-danger"
