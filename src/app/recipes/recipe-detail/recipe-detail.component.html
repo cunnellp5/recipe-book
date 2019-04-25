@@ -37,7 +37,10 @@
             style="cursor: pointer;"
             (click)="onEditRecipe()"
           >Edit Recipe</a></li>
-        <li><a style="cursor: pointer;">Delete Recipe</a></li>
+        <li><a
+            style="cursor: pointer;"
+            (click)="onDeleteRecipe()"
+          >Delete Recipe</a></li>
       </ul>
     </div>
   </div>
@@ -55,7 +58,7 @@
         class="list-group-item"
         *ngFor="let ingredient of recipe.ingredients"
       >
-        {{ ingredient.name }} - {{ ingredient.amount }}
+        {{ ingredient.name }}: {{ ingredient.amount }}
       </li>
     </ul>
   </div>
