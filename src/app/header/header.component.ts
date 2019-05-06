@@ -1,3 +1,4 @@
+import { AuthService } from './../auth/auth.service';
 import { DataStorageService } from './../shared/data-storage.service';
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
@@ -9,7 +10,8 @@ import { Response } from '@angular/http';
 })
 export class HeaderComponent {
   constructor(
-    private _dataStorageService: DataStorageService
+    private _dataStorageService: DataStorageService,
+    public authService: AuthService
   ) { }
 
   onSaveData() {
