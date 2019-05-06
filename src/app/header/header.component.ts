@@ -11,7 +11,7 @@ import { Response } from '@angular/http';
 export class HeaderComponent {
   constructor(
     private _dataStorageService: DataStorageService,
-    public authService: AuthService
+    protected authService: AuthService
   ) { }
 
   onSaveData() {
