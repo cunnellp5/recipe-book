@@ -9,15 +9,15 @@ import { RecipeService } from '../recipe.service';
   styleUrls: ['./recipe-edit.component.css']
 })
 export class RecipeEditComponent implements OnInit {
+  id: number;
+  recipeForm: FormGroup;
+  editMode = false;
 
   constructor(
     private route: ActivatedRoute,
     private _recipeService: RecipeService,
     private router: Router
   ) { }
-  id: number;
-  recipeForm: FormGroup;
-  editMode = false;
 
   ngOnInit() {
     this.route.params

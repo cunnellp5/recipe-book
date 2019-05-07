@@ -13,6 +13,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class RecipeListComponent implements OnInit, OnDestroy {
   recipes: IRecipe[];
   subscription$: Subscription;
+  authenticated: boolean;
 
   constructor(
     private _recipeService: RecipeService,
@@ -33,6 +34,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
         }
       );
     this.recipes = this._recipeService.getRecipes();
+    this.authenticated = this.authService.isAuthenticated();
   }
 
   onNewRecipe() {

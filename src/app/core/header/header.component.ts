@@ -15,6 +15,10 @@ export class HeaderComponent {
     protected authService: AuthService
   ) { }
 
+  authenticated() {
+    return this.authService.isAuthenticated();
+  }
+
   onSaveData() {
     this._dataStorageService.storeRecipes()
       .subscribe(

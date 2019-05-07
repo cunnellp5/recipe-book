@@ -3,4 +3,6 @@
 ###TODO:
 
 ##### shopping-list
-[] check list if item is already added and group by name
+[] instructions in formgroup
+[] restful users
+[] star ratings
