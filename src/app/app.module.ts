@@ -18,12 +18,12 @@ import { HomeComponent } from './home/home.component';
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpModule,
+    AppRoutingModule,
     SharedModule,
     ShoppingListModule,
     AuthModule,

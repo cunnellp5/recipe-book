@@ -8,6 +8,7 @@ import { Response } from '@angular/http';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
 export class HeaderComponent {
   constructor(
     private _dataStorageService: DataStorageService,
