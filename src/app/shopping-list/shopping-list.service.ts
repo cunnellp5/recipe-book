@@ -6,8 +6,8 @@ export class ShoppingListService {
   startedEditing = new Subject<number>();
 
   private ingredients: IIngredient[] = [
-    new IIngredient('apples', 5),
-    new IIngredient('bananas', 11)
+    new IIngredient('apples', 5, false),
+    new IIngredient('bananas', 11, false)
   ];
 
   getIngredients() {
@@ -38,4 +38,8 @@ export class ShoppingListService {
     this.ingredientsChanged.next(this.ingredients.slice());
   }
 
+  checkTheBox(index: number) {
+    this.ingredients[index].checked = !this.ingredients[index].checked;
+    this.ingredientsChanged.next(this.ingredients.slice());
+  }
 }

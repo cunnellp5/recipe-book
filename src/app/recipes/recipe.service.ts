@@ -14,8 +14,8 @@ export class RecipeService {
       'This is simplay a test',
       'https://cdn.pixabay.com/photo/2017/06/21/22/42/recipe-2428926_960_720.jpg',
       [
-        new IIngredient('poop', 1),
-        new IIngredient('stuff', 2)
+        new IIngredient('poop', 1, false),
+        new IIngredient('stuff', 2, false)
       ]
     ),
     // tslint:disable-next-line:max-line-length
@@ -24,8 +24,8 @@ export class RecipeService {
       'This is simplay a tickls',
       'https://cdn.pixabay.com/photo/2017/06/21/22/42/recipe-2428926_960_720.jpg',
       [
-        new IIngredient('junk', 2),
-        new IIngredient('garbage', 2)
+        new IIngredient('junk', 2, false),
+        new IIngredient('garbage', 2, false)
       ]
     )
   ];

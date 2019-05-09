@@ -10,6 +10,8 @@ import { Subscription } from 'rxjs';
 })
 export class ShoppingListComponent implements OnInit, OnDestroy {
   ingredients: IIngredient[];
+  checked = false;
+  completeGroceryListMessage: boolean;
   private subscription$: Subscription;
 
   constructor(private _shoppingListService: ShoppingListService) { }
@@ -24,8 +26,10 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
       );
   }
 
-  onEditItem(id: number) {
+  onEditItem(event, id: number) {
+    this._shoppingListService.checkTheBox(id);
     this._shoppingListService.startedEditing.next(id);
+    this.completeGroceryListMessage = this.ingredients.every((ingredient) => ingredient.checked);
   }
 
   ngOnDestroy() {
