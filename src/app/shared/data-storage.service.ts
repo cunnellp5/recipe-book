@@ -17,7 +17,9 @@ export class DataStorageService {
     const token = this.authService.getToken();
     return this.httpClient.put(
       'https://recipe-book-ba3e8.firebaseio.com/recipes.json?auth=' + token,
-      this._recipeService.getRecipes()
+      this._recipeService.getRecipes(), {
+        observe: 'body'
+      }
     );
   }
 
