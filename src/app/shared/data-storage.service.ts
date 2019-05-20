@@ -35,19 +35,16 @@ export class DataStorageService {
       'PUT',
       'https://recipe-book-ba3e8.firebaseio.com/recipes.json',
       this._recipeService.getRecipes(),
-      {
-        reportProgress: true,
-        params: new HttpParams().set('auth', token)
-      }
+      { reportProgress: true }
     );
     return this.httpClient.request(req);
   }
 
   getRecipes() {
     const token = this.authService.getToken();
-    return this.httpClient.get<IRecipe[]>('https://recipe-book-ba3e8.firebaseio.com/recipes.json' + token, {
+    return this.httpClient.get<IRecipe[]>('https://recipe-book-ba3e8.firebaseio.com/recipes.json?auth=' + token, {
       observe: 'body',
-      params: new HttpParams().set('suth', token)
+      responseType: 'json'
     })
       .pipe(
         map(
@@ -57,6 +54,7 @@ export class DataStorageService {
                 recipe['ingredients'] = [];
               }
             }
+            console.log(recipes);
             return recipes;
           }
         )
