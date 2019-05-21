@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { IIngredient } from '../shared/ingredient.model';
-import { ShoppingListService } from './shopping-list.service';
 import * as fromShoppingList from './store/shopping-list.reducers';
+import * as ShoppingListActions from './store/shopping-list.actions';
 
 @Component({
   selector: 'app-shopping-list',
@@ -16,7 +16,6 @@ export class ShoppingListComponent implements OnInit {
   completeGroceryListMessage: boolean;
 
   constructor(
-    private _shoppingListService: ShoppingListService,
     private store: Store<fromShoppingList.AppState>
   ) { }
 
@@ -25,8 +24,9 @@ export class ShoppingListComponent implements OnInit {
   }
 
   onEditItem(event, id: number) {
-    this._shoppingListService.checkTheBox(id);
-    this._shoppingListService.startedEditing.next(id);
+    this.store.dispatch(new ShoppingListActions.StartEdit(id));
+    // this._shoppingListService.checkTheBox(id);
+    // this._shoppingListService.startedEditing.next(id);
     // this.completeGroceryListMessage = this.ingredients.every((ingredient) => ingredient.checked);
   }
 

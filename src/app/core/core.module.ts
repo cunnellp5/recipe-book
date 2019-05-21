@@ -7,7 +7,6 @@ import { HeaderComponent } from './header/header.component';
 // import { AuthGuard } from '../auth/auth-guard.service';
 import { AuthService } from '../auth/auth.service';
 import { RecipeService } from '../recipes/recipe.service';
-import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { SharedModule } from './../shared/shared.module';
 import { DataStorageService } from '../shared/data-storage.service';
 import { AuthInterceptor } from '../shared/auth.interceptor';
@@ -26,7 +25,6 @@ import { AuthInterceptor } from '../shared/auth.interceptor';
     HeaderComponent
   ],
   providers: [
-    ShoppingListService,
     RecipeService,
     DataStorageService,
     AuthService,
