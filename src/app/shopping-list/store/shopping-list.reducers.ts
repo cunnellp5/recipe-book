@@ -2,7 +2,7 @@ import { IIngredient } from '../../shared/ingredient.model';
 import * as ShoppingListActions from './shopping-list.actions';
 
 export interface AppState {
-  shoppingList: State
+  shoppingList: State;
 }
 export interface State {
   ingredients: IIngredient[];
@@ -44,7 +44,9 @@ export function shoppingListReducer(state = initialState, action: ShoppingListAc
       ingredients[state.editedIngredientIndex] = updatedIngredient;
       return {
         ...state,
-        ingredients: ingredients
+        ingredients: ingredients,
+        editedIngredient: null,
+        editedIngredientIndex: -1
       };
 
     case ShoppingListActions.DELETE_INGREDIENT:
@@ -52,7 +54,9 @@ export function shoppingListReducer(state = initialState, action: ShoppingListAc
       oldIngredients.splice(state.editedIngredientIndex, 1);
       return {
         ...state,
-        ingredients: oldIngredients
+        ingredients: oldIngredients,
+        editedIngredient: null,
+        editedIngredientIndex: -1
       };
 
     case ShoppingListActions.START_EDIT:
@@ -61,6 +65,13 @@ export function shoppingListReducer(state = initialState, action: ShoppingListAc
         ...state,
         editedIngredient: editedIngredient,
         editedIngredientIndex: action.payload
+      };
+
+    case ShoppingListActions.STOP_EDIT:
+      return {
+        ...state,
+        editedIngredient: null,
+        editedIngredientIndex: -1
       };
 
     default:
