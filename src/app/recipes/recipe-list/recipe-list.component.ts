@@ -34,7 +34,6 @@ export class RecipeListComponent implements OnInit, OnDestroy {
         }
       );
     this.recipes = this._recipeService.getRecipes();
-    this.authenticated = this.authService.isAuthenticated();
   }
 
   onNewRecipe() {

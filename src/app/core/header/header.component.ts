@@ -25,9 +25,9 @@ export class HeaderComponent implements OnInit {
     this.authState = this.store.select('auth');
   }
 
-  authenticated() {
-    return this.authService.isAuthenticated();
-  }
+  // authenticated() {
+  //   return this.authService.isAuthenticated();
+  // }
 
   onSaveData() {
     this._dataStorageService.storeRecipes()
